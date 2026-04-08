@@ -24,6 +24,10 @@ describe('JugadoresComponent', () => {
   });
 
   it('debería crearse el componente', () => {
+    // Respondemos a la petición HTTP que dispara el ngOnInit con lista vacía
+    const req = httpMock.expectOne(`${environment.apiUrlLaravel}/jugadors`);
+    req.flush([]);
+
     expect(component).toBeTruthy();
   });
 
